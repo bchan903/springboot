@@ -17,7 +17,7 @@ public class HelloController {
 	@RequestMapping("/hello")
 	public  String helloMsg(Model model) {
 		model.addAttribute("message", "안녕하세요");
-		return "hello";
+		return "hello~~~~~";
 	}
 
 }
