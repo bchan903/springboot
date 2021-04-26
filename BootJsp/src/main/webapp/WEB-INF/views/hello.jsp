@@ -7,7 +7,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		hello.jsp 페이지 입니다.<br>
+		hello.jsp77777 페이지 입니다.<br>
 		${message}<br>
 		<img src="/image/logo.png">
 	</body>
