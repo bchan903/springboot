@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.javacoffee.web.dao.IProductDAO">
+  		<resultMap type="com.javacoffee.web.model.ProductVO" id="prdResult">
+  			<result property="prdNo" column="prdNo"/>
+  			<result property="prdName" column="prdName"/>
+  			<result property="prdDesc" column="prdDesc"/>
+  			<result property="prdPeriod" column="prdPeriod"/> 
+  			<result property="prdPrice" column="prdPrice"/>   	
+  			<result property="prdSize" column="prdSize"/> 
+  			<result property="prdOpt1" column="prdOpt1"/> 
+  			<result property="prdOpt2" column="prdOpt2"/>   	
+  			<result property="prdOpt3" column="prdOpt3"/> 
+  			<result property="sellYN" column="sellYN"/> 
+  		</resultMap>  
+  
+  		<select id="productList" resultMap="prdResult">
+  			<![CDATA[
+  				SELECT * FROM product order by prdNo
+  			]]>
+  		</select>
+  		
+  		<select id="productMain" resultMap="prdResult">
+  			<![CDATA[
+  				SELECT * FROM product where sellYN='Y' order by prdNo
+  			]]>
+  		</select>
+  		
+  		<select id="selectProduct" resultMap="prdResult" parameterType = "String">
+  			<![CDATA[
+				SELECT * FROM product where prdNo=#{prdNo}
+			]]>
+		</select>
+		
+		<update id="updateProduct" parameterType="com.javacoffee.web.model.ProductVO">
+  			UPDATE product
+  			SET prdName=#{prdName}, prdDesc=#{prdDesc}, prdPeriod=#{prdPeriod},
+  				   prdPrice=#{prdPrice}, prdSize=#{prdSize}, prdOpt1=#{prdOpt1}, prdOpt2=#{prdOpt2}, prdOpt3=#{prdOpt3}
+  			WHERE prdNo=#{prdNo}	   	
+  		</update>
+  </mapper>
+  
+  
+  
